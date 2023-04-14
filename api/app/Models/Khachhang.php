@@ -64,4 +64,7 @@ class Khachhang extends Model
 	{
 		return $this->hasMany(Taikhoan::class, 'KH_ID');
 	}
+	public function dichvuss(){
+        return $this->belongsToMany(Dichvu::class,'kh_dv','KH_ID','DV_ID')->withPivot('HD_NGAYLAP','HD_TRANGTHAICUOC')->using(KhDv::class);
+    }
 }
