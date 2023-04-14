@@ -9,7 +9,7 @@ use \Illuminate\Database\QueryException;
 class KhachHang extends Controller
 {
     public function getDSBaoHongBySdtKhachHang($sdt){
-        $khachhang = MKhachHang::where('KH_SDT', $sdt)->first()->phieubaohongs()->with('dichvu')->get();
+        $khachhang = MKhachHang::where('KH_SDT', $sdt)->first()->phieubaohongs()->orderByDesc('PBH_ID')->with('dichvu')->get();
 
             return response()->json([
                 'status'=>200,

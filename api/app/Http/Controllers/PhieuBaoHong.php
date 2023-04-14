@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Khachhang;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Phieubaohong as MPhieuBaoHong;
@@ -17,7 +19,17 @@ class PhieuBaoHong extends Controller
     }
 
     public function insert(Request $request){
-            $phieubaohong=MphieuBaoHong::create($request->all());
+            $sdt = $request->sdt; 
+            $khachhang = Khachhang::where('kh_sdt', $sdt)->first();
+            if(!$khachhang) { 
+                
+            }
+            $data = [
+                "KH_ID" => $khachhang->KH_ID,
+                "DV_ID" => $request->dv_id,
+                "PBH_NOIDUNG" => $request->pbh_noidung,
+            ];
+            $phieubaohong=MphieuBaoHong::create($data);
             $phieubaohong->PBH_TRANGTHAI="PHIEU_DANG_DUOC_GUI";
             $phieubaohong->PBH_TG_TAOPHIEU=Carbon::now();
             $phieubaohong->save();
