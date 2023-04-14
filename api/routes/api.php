@@ -20,7 +20,7 @@ use App\Http\Controllers\DichVu;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('DichVu/geDanhSachDichVu', [DichVu::class,'geDanhSachDichVu',]);
+Route::get('DichVu/getDanhSachDichVu', [DichVu::class,'geDanhSachDichVu',]);
 Route::get('KhachHang/getDSBaoHongBySdtKhachHang/{sdt}', [KhachHang::class,'getDSBaoHongBySdtKhachHang',]);
 Route::get('PhieuBaoHong/danhsachphieu', [PhieuBaoHong::class,'getDSPhieuBaoHong',]);
 Route::POST('PhieuBaoHong/insert', [PhieuBaoHong::class,'insert',]);
