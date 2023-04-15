@@ -75,6 +75,7 @@ class PhieuBaoHong extends Controller
         $phieubaohong=MphieuBaoHong::find($request->PBH_ID);
         $phieubaohong->PBH_TRANGTHAI="PHIEU_DA_DUOC_TIEP_NHAN";
         $phieubaohong->PBH_TG_NHANPHIEU=Carbon::now();
+        $phieubaohong->ID_NV_TIEP_NHAN=$request->ID_NV_TIEP_NHAN;
         $phieubaohong->save();
         if($phieubaohong){
             return response()->json([
@@ -93,12 +94,8 @@ class PhieuBaoHong extends Controller
     public function banGiaoXuLy(Request $request){
         $phieubaohong=MphieuBaoHong::find($request->PBH_ID);
         $phieubaohong->PBH_TRANGTHAI="PHIEU_DA_GIAO_KY_THUAT_XU_LY";
-        $quanlyphieu =MQuanlyPhieubh::create();
-        $quanlyphieu->NV_ID=$request->NV_ID;
-        $quanlyphieu->PBH_ID=$request->PBH_ID;
-        $quanlyphieu->QL_NHIEMVU=$request->QL_NHIEMVU;
         $phieubaohong->PBH_TG_CHUYENKYTHUAT=Carbon::now();
-        $quanlyphieu->save();
+        $phieubaohong->ID_NV_XU_LY=$request->ID_NV_XU_LY;
         $phieubaohong->save();
         if($phieubaohong){
             return response()->json([

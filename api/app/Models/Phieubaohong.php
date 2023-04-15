@@ -57,7 +57,9 @@ class Phieubaohong extends Model
 		'PBH_TG_TAOPHIEU',
 		'PBH_TG_NHANPHIEU',
 		'PBH_TG_CHUYENKYTHUAT',
-		'PBH_TG_HOANTHANH'
+		'PBH_TG_HOANTHANH',
+		'ID_NV_XU_LY',
+		'ID_NV_TIEP_NHAN'
 	];
 
 	public function khachhang()

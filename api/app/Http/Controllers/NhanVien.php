@@ -22,4 +22,18 @@ class NhanVien extends Controller
             'data'=>$phieubaohong
         ]);
     }
+    public function getDanhSachNhanVienKyThuat(){
+        $nhanvienkythuats=MNhanvien::where('NV_NHIEMVU', "XU_LY")->get();
+        if($nhanvienkythuats){
+            return response()->json([
+                'status'=>200,
+                'data'=>$nhanvienkythuats
+            ]);
+        }else{
+            return response()->json([
+                'status'=>200,
+                'mess'=>'Không có nhân viên kỹ thuật nào'
+            ]);
+        }
+    }
 }

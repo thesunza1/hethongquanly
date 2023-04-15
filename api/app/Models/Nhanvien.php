@@ -36,7 +36,8 @@ class Nhanvien extends Model
 	protected $fillable = [
 		'TK_ID',
 		'NV_SDT',
-		'NV_TEN'
+		'NV_TEN',
+		'NV_NHIEMVU'
 	];
 
 	public function taikhoan()
