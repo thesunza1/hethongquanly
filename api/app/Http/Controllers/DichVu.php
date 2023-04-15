@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Dichvu as MDichvu;
 use App\Models\KhDv as MKhDv;
 use App\Models\KhachHang as MKhachHang;
+use App\Models\Nhanvien as MNhanvien;
+
 use Illuminate\Support\Facades\DB;
 class DichVu extends Controller
 {
