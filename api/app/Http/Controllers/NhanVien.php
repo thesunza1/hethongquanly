@@ -10,7 +10,7 @@ class NhanVien extends Controller
 {
     public function getDSPhieuBaoHongBySdtNhanVien($sdt){
         $nhanVien = MNhanvien::where('NV_SDT', $sdt)->first();
-        $phieubaohong=MPhieuBaoHong::with('dichvu')->get();
+        $phieubaohong=MPhieuBaoHong::with('dichvu','nhanvienkythuat','nhanvientiepnhan')->get();;
         if(!$nhanVien){
             return response()->json([
                 'status'=>500,
@@ -19,7 +19,8 @@ class NhanVien extends Controller
         }
         return response()->json([
             'status'=>200,
-            'data'=>$phieubaohong
+            'data'=>$phieubaohong,
+            'thongtinhanvien'=>$nhanVien
         ]);
     }
     public function getDanhSachNhanVienKyThuat(){
