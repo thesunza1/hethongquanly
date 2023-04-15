@@ -9,11 +9,16 @@ use \Illuminate\Database\QueryException;
 class KhachHang extends Controller
 {
     public function getDSBaoHongBySdtKhachHang($sdt){
-        $khachhang = MKhachHang::where('KH_SDT', $sdt)->first()->phieubaohongs()->orderByDesc('PBH_ID')->with('dichvu')->get();
-
+        $khachhang = MKhachHang::where('KH_SDT', $sdt)->first();
+            if(!$khachhang){
+                return response()->json([
+                    'status'=>500,
+                    'mess'=>"Đã xảy ra lỗi"
+                ]);
+            }
             return response()->json([
                 'status'=>200,
-                'phieubaohong'=>$khachhang
+                'phieubaohong'=>$khachhang->phieubaohongs()->orderByDesc('PBH_ID')->with('dichvu')->get()
             ]);
     }
 }

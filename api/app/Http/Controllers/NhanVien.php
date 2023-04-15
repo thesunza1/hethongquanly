@@ -11,17 +11,15 @@ class NhanVien extends Controller
     public function getDSPhieuBaoHongBySdtNhanVien($sdt){
         $nhanVien = MNhanvien::where('NV_SDT', $sdt)->first();
         $phieubaohong=MPhieuBaoHong::with('dichvu')->get();
-        if($nhanVien){
+        if(!$nhanVien){
             return response()->json([
-                'status'=>200,
-                'data'=>$phieubaohong
-            ]);
-        }else{
-            return response()->json([
-                'status'=>200,
-                'mess'=>"Không có phiếu"
+                'status'=>500,
+                'mess'=>"Đã xảy ra lỗi"
             ]);
         }
-
+        return response()->json([
+            'status'=>200,
+            'data'=>$phieubaohong
+        ]);
     }
 }
