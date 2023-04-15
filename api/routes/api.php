@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhieuBaoHong;
 use App\Http\Controllers\KhachHang;
 use App\Http\Controllers\DichVu;
+use App\Http\Controllers\NhanVien;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,7 @@ Route::POST('PhieuBaoHong/update', [PhieuBaoHong::class,'update',]);
 Route::POST('PhieuBaoHong/xacNhan', [PhieuBaoHong::class,'xacNhan',]);
 Route::POST('PhieuBaoHong/banGiaoXuLy', [PhieuBaoHong::class,'banGiaoXuLy',]);
 Route::POST('PhieuBaoHong/hoanThanh', [PhieuBaoHong::class,'hoanThanh',]);
-Route::get('DichVu/getDSDichVuByIdKhachHang/{sdt}', [DichVu::class,'getDSDichVuByIdKhachHang',]);
+Route::POST('PhieuBaoHong/danhGia', [PhieuBaoHong::class,'danhGia',]);
+Route::get('NhanVien/getDSPhieuBaoHongBySdtNhanVien/{sdt}', [NhanVien::class,'getDSPhieuBaoHongBySdtNhanVien',]);
 
 

@@ -121,4 +121,25 @@ class PhieuBaoHong extends Controller
             ]);
         }
     }
+    public function danhGia(Request $request){
+        $phieubaohong=MphieuBaoHong::find($request->PBH_ID);
+        $phieubaohong->PBH_TRANGTHAI="HOAN_THANH";
+        $phieubaohong->PBH_DANHGIA_SAO=$request->PBH_DANHGIA_SAO;
+        $phieubaohong->PBH_DANHGIA_LOINHAN=$request->PBH_DANHGIA_LOINHAN;
+        $phieubaohong->PBH_TG_HOANTHANH=Carbon::now();
+        $phieubaohong->save();
+        if($phieubaohong){
+            return response()->json([
+                'status'=>200,
+                'data'=>$phieubaohong,
+                'mess'=>"Đánh giá thành công"
+            ]);
+        }else{
+            return response()->json([
+                'status'=>200,
+                'data'=>null,
+                'mess'=>"Đánh giá thất bại"
+            ]);
+        }
+    }
 }

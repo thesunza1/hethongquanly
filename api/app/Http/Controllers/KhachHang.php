@@ -10,7 +10,6 @@ class KhachHang extends Controller
 {
     public function getDSBaoHongBySdtKhachHang($sdt){
         $khachhang = MKhachHang::where('KH_SDT', $sdt)->first()->phieubaohongs()->with('dichvu')->get();
-
             return response()->json([
                 'status'=>200,
                 'phieubaohong'=>$khachhang
