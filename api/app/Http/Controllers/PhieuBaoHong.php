@@ -11,7 +11,7 @@ use App\Models\QuanlyPhieubh as MQuanlyPhieubh;
 class PhieuBaoHong extends Controller
 {
     public function getDSPhieuBaoHong(Request $id){
-        $phieubaohong = MPhieuBaoHong::all();
+        $phieubaohong = MPhieuBaoHong::with('dichvu','nhanvienkythuat','nhanvientiepnhan')->get();
         return response()->json([
             'status'=>200,
             'data'=>$phieubaohong

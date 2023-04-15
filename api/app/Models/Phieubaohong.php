@@ -66,6 +66,14 @@ class Phieubaohong extends Model
 	{
 		return $this->belongsTo(Khachhang::class, 'KH_ID');
 	}
+	public function nhanvienkythuat()
+	{
+		return $this->belongsTo(nhanvien::class, 'ID_NV_XU_LY','NV_ID');
+	}
+	public function nhanvientiepnhan()
+	{
+		return $this->belongsTo(nhanvien::class, 'ID_NV_TIEP_NHAN','NV_ID');
+	}
 
 	public function dichvu()
 	{
