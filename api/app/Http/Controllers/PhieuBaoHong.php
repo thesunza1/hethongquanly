@@ -96,6 +96,7 @@ class PhieuBaoHong extends Controller
         $phieubaohong->PBH_TRANGTHAI="PHIEU_DA_GIAO_KY_THUAT_XU_LY";
         $phieubaohong->PBH_TG_CHUYENKYTHUAT=Carbon::now();
         $phieubaohong->ID_NV_XU_LY=$request->ID_NV_XU_LY;
+        $phieubaohong->ID_NV_TIEP_NHAN=$request->ID_NV_TIEP_NHAN;
         $phieubaohong->save();
         if($phieubaohong){
             return response()->json([
