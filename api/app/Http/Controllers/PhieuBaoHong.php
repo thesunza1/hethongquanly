@@ -26,8 +26,8 @@ class PhieuBaoHong extends Controller
             }
             $data = [
                 "KH_ID" => $khachhang->KH_ID,
-                "DV_ID" => $request->dv_id,
-                "PBH_NOIDUNG" => $request->pbh_noidung,
+                "DV_ID" => $request->DV_ID,
+                "PBH_NOIDUNG" => $request->PBH_NOIDUNG,
             ];
             $phieubaohong=MphieuBaoHong::create($data);
             $phieubaohong->PBH_TRANGTHAI="PHIEU_DANG_DUOC_GUI";
