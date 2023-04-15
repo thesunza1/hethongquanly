@@ -34,6 +34,7 @@ Route::POST('PhieuBaoHong/danhGia', [PhieuBaoHong::class,'danhGia',]);
 Route::get('DichVu/getDSDichVuBySdtKhachHang/{sdt}', [DichVu::class,'getDSDichVuBySdtKhachHang',]);
 Route::get('NhanVien/getDSPhieuBaoHongBySdtNhanVien/{sdt}', [NhanVien::class,'getDSPhieuBaoHongBySdtNhanVien',]);
 Route::get('NhanVien/getDanhSachNhanVienKyThuat', [NhanVien::class,'getDanhSachNhanVienKyThuat',]);
+Route::get('NhanVien/getDSPhieuBaoHongBySdtNhanVienKyThuat/{sdt}', [NhanVien::class,'getDSPhieuBaoHongBySdtNhanVienKyThuat',]);
 
 
 

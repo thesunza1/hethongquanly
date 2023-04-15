@@ -37,4 +37,19 @@ class NhanVien extends Controller
             ]);
         }
     }
+    public function getDSPhieuBaoHongBySdtNhanVienKyThuat($sdt){
+        $nhanVien = MNhanvien::where('NV_SDT', $sdt)->first();
+        $phieubaohong=MPhieuBaoHong::where('ID_NV_XU_LY', $nhanVien->NV_ID)->with('dichvu','nhanvienkythuat','nhanvientiepnhan')->get();;
+        if(!$nhanVien){
+            return response()->json([
+                'status'=>500,
+                'mess'=>"Đã xảy ra lỗi"
+            ]);
+        }
+        return response()->json([
+            'status'=>200,
+            'data'=>$phieubaohong,
+            'thongtinhanvien'=>$nhanVien
+        ]);
+    }
 }
